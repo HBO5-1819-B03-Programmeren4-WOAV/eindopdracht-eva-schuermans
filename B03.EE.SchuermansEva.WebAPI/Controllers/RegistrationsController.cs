@@ -7,17 +7,17 @@ namespace B03.EE.SchuermansEva.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoriesController : CrudBaseController<Category, CategoryRepository>
+    public class RegistrationsController : CrudBaseController<Registration, RegistrationRepository>
     {
-        public CategoriesController(CategoryRepository categoryRepository) : base(categoryRepository)
-        {
+        public RegistrationsController(RegistrationRepository registrationRepository) : base(registrationRepository)
+        {   
         }
 
-        // GET: api/Categories
+        // GET: api/Registrations
         [HttpGet]
         public override async Task<IActionResult> Get()
         {
             return Ok(await repository.GetAllInclusive());
         }
     }
-}    
+}       

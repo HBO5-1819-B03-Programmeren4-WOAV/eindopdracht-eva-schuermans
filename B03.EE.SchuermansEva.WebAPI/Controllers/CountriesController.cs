@@ -1,16 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using B03.EE.SchuermansEva.Lib.Models;
+using B03.EE.SchuermansEva.WebAPI.Repositories; 
 
 namespace B03.EE.SchuermansEva.WebAPI.Controllers
 {
-    public class CountriesController : Controller
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CountriesController : CrudBaseController <Country, CountryRepository>
     {
-        public IActionResult Index()
+        public CountriesController(CountryRepository countryRepository) : base(countryRepository)
+        {   
+        }
+
+        // GET: api/Countries
+        [HttpGet]
+        public override async Task<IActionResult> Get()
         {
-            return View();
+            return Ok(await repository.GetAllInclusive());
         }
     }
 }
