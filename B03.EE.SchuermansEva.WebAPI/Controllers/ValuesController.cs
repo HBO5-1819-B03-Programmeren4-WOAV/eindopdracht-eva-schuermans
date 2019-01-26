@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace B03.EE.SchuermansEva.API.Controllers
+namespace B03.EE.SchuermansEva.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

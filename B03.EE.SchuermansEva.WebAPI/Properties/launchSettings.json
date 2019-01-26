@@ -4,8 +4,8 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:59745",
-      "sslPort": 44376
+      "applicationUrl": "http://localhost:62631",
+      "sslPort": 44335
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "B03.EE.SchuermansEva.API": {
+    "B03.EE.SchuermansEva.WebAPI": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",

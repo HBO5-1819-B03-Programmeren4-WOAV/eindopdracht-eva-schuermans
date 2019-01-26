@@ -18,6 +18,6 @@ namespace B03.EE.SchuermansEva.Lib.Models
         public string CountryName { get; set; }
 
         [JsonIgnore]
-        public ICollection<Activity> Ativities { get; set; }
+        public ICollection<Activity> Activities { get; set; }
     }
 }

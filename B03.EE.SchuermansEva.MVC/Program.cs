@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace B03.EE.SchuermansEva.API
+namespace B03.EE.SchuermansEva.MVC
 {
     public class Program
     {
