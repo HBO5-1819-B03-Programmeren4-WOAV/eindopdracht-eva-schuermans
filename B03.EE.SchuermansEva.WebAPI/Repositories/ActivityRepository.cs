@@ -22,6 +22,7 @@ namespace B03.EE.SchuermansEva.WebAPI.Repositories
             return await GetAll()
                 .Include(a => a.Category)
                 .Include(a => a.Country)
+                .Include(a => a.Registrations)
                 .ToListAsync();
         }
 
@@ -39,6 +40,7 @@ namespace B03.EE.SchuermansEva.WebAPI.Repositories
             return await db.Activities
                 .Include(a => a.Category)
                 .Include(a => a.Country)
+                .Include(a => a.Registrations)
                 .FirstOrDefaultAsync(a => a.Id == id);
         }
     }

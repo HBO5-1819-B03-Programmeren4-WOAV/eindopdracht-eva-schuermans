@@ -6,7 +6,7 @@ namespace B03.EE.SchuermansEva.Lib.Models
 {
     public class Category : EntityBase
     {
-        public List<string> CategoryNames
+        public static List<string> CategoryNames
         {
             get
             {

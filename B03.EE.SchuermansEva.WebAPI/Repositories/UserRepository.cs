@@ -18,7 +18,7 @@ namespace B03.EE.SchuermansEva.WebAPI.Repositories
         public async Task<List<User>> GetAllInclusive()
         {
             return await GetAll()
-                .Include(u => u.Activities)
+                .Include(u => u.Registrations)
                 .ToListAsync();
         }
 

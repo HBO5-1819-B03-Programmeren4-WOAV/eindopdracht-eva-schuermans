@@ -14,6 +14,6 @@ namespace B03.EE.SchuermansEva.Lib.Models
         public int CountryId { get; set; }
         public Country Country { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public ICollection<Registration> Registrations { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace B03.EE.SchuermansEva.Lib.Models
         public DateTime BirthDay { get; set; }
 
         [JsonIgnore]
-        public ICollection<Activity>Activities { get; set; }
+        public ICollection<Registration> Registrations { get; set; }
                    
     }
 }
