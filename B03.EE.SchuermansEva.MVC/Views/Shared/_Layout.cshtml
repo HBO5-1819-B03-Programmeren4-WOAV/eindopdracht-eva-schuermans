@@ -26,13 +26,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">B03.EE.SchuermansEva.MVC</a>
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Activity Planner</a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Activities" asp-action="IndexVue">Activities</a></li>
+                    <li><a asp-area="" asp-controller="Users" asp-action="IndexVue">Users</a></li>
+                    <li><a asp-area="" asp-controller="Categories" asp-action="Index">Categories</a></li>
+                    <li><a asp-area="" asp-controller="Countries" asp-action="Index">Countries</a></li>
                 </ul>
             </div>
         </div>
@@ -44,7 +45,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2019 - B03.EE.SchuermansEva.MVC</p>
+            <p>&copy; 2019 - Activity Planner - Eva Schuermans</p>
         </footer>
     </div>
 

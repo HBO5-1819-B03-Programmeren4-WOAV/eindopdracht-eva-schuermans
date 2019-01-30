@@ -1,0 +1,78 @@
+﻿
+@{
+    ViewData["Title"] = "Activities";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<article id="app" class="row">
+    <header class="col-md-4">
+        <h3>  {{ message }}  </h3>         
+        <nav>
+            <ul class="list-group">
+                <li v-for="activity in activities" v-on:click="fetchActivityDetails(activity)" :class="getActivityClass(activity)" style="cursor:pointer">
+                    <span class="activityTitle">{{ activity.title }}</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div v-if="currentActivity" class="col-md-4">
+        <h3>Details</h3>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-4 control-label small">Title</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" v-model="currentActivity.title" :readonly="isReadOnly">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label small">Description</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" v-model="currentActivity.description" :readonly="isReadOnly">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label small">Category</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" v-model="currentActivity.category.categoryName" v-if="isReadOnly" :readonly="isReadOnly">
+                    <select v-model="currentActivity.category" class="form-control" v-if="!isReadOnly">
+                        <option v-for="category in categories" :value="category">{{ category.categoryName }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label small">Country</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" :value="currentActivity.country.countryName" v-if="isReadOnly" :readonly="isReadOnly">
+                    <select v-model="currentActivity.country" class="form-control" v-if="!isReadOnly">
+                        <option v-for="country in countries" :value="country">{{ country.countryName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label small">Start</label>
+                <div class="col-sm-8">
+                    <input type="datetime" class="form-control" v-model="currentActivity.startDateTime" :readonly="isReadOnly">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label small">End</label>
+                <div class="col-sm-8">
+                    <input type="datetime" class="form-control" v-model="currentActivity.stopDateTime" :readonly="isReadOnly">
+                </div>
+            </div>
+            <button v-on:click="toEditMode(false)" v-if="isReadOnly" class="btn btn-warning">New</button>
+            <button v-on:click="toEditMode(true)" v-if="isReadOnly" class="btn btn-primary">Edit</button>
+            <button v-on:click="deleteActivity()" v-if="isReadOnly" class="btn btn-danger">Delete</button>
+            <button v-on:click="save" v-if="!isReadOnly" class="btn btn-primary">Save</button>
+            <button v-on:click="cancel" v-if="!isReadOnly" class="btn btn-default">Cancel</button>
+        </div>
+    </div>
+</article>
+
+
+@section scripts{
+    <script src="~/js/vue.js"></script>
+    <script src="~/js/activities.js"></script>
+}
+
