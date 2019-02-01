@@ -30,5 +30,13 @@ namespace B03.EE.SchuermansEva.WebAPI.Controllers
         {
             return Ok(await repository.ListBasic());
         }
+
+        // GET: api/Users/Id
+        [HttpGet]
+        [Route("Users/{id}")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            return Ok(await repository.GetById(id));
+        }
     }
 }

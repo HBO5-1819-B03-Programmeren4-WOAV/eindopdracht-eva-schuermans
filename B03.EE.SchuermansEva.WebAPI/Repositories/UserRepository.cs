@@ -31,6 +31,13 @@ namespace B03.EE.SchuermansEva.WebAPI.Repositories
 
             }).ToListAsync();
             return users;
-        }                 
+        }
+
+        public override async Task<User> GetById(int id)
+        {
+            return await db.Users 
+                .Include(a => a.Registrations)
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
     }
 }

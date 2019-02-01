@@ -3,7 +3,7 @@
 var app = new Vue({
     el: '#app',
     data: {
-        message: 'Loading...',
+        message: 'Loading activities...',
         activities: null,
         categories: null,
         countries: null,
