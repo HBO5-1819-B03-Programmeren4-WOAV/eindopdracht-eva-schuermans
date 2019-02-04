@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B03.EE.SchuermansEva.Lib", "B03.EE.SchuermansEva.Lib\B03.EE.SchuermansEva.Lib.csproj", "{A1846540-C678-4E71-A370-6084BD364B2F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B03.EE.SchuermansEva.Lib", "B03.EE.SchuermansEva.Lib\B03.EE.SchuermansEva.Lib.csproj", "{A1846540-C678-4E71-A370-6084BD364B2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B03.EE.SchuermansEva.MVC", "B03.EE.SchuermansEva.MVC\B03.EE.SchuermansEva.MVC.csproj", "{0E23A1D1-04B0-48A1-81D5-2528A6133359}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B03.EE.SchuermansEva.MVC", "B03.EE.SchuermansEva.MVC\B03.EE.SchuermansEva.MVC.csproj", "{0E23A1D1-04B0-48A1-81D5-2528A6133359}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B03.EE.SchuermansEva.WebAPI", "B03.EE.SchuermansEva.WebAPI\B03.EE.SchuermansEva.WebAPI.csproj", "{447917ED-BFFA-4B2E-A43D-A7EBDA1363FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "B03.EE.SchuermansEva.WebAPI", "B03.EE.SchuermansEva.WebAPI\B03.EE.SchuermansEva.WebAPI.csproj", "{447917ED-BFFA-4B2E-A43D-A7EBDA1363FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
