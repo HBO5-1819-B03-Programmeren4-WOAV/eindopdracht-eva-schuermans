@@ -72,7 +72,7 @@ var app = new Vue({
             };
 
             if (self.isEdit) {
-                let myRequest = new Request(`${apiURL}Users/${self.currentBook.id}`, ajaxConfig);
+                let myRequest = new Request(`${apiURL}Users/${self.currentUser.id}`, ajaxConfig);
                 fetch(myRequest)
                     .then(res => res.json())
                     .then(res => {
@@ -92,9 +92,9 @@ var app = new Vue({
             }
             self.isEdit = false;
             self.isReadOnly = true;
+            window.location.reload(true); 
         },
-        addUserToList: function (user) {
-
+        addUserToList: function (user) {              
             self.currentUser.id = user.id;
             self.users.push(user);
             self.fetchUserDetails(self.users[self.users.length - 1]);
@@ -103,8 +103,7 @@ var app = new Vue({
             // de geupdate gebruiker uit de gebruikerslijst ophalen
             var updatedUser = self.users.filter(u => u.id === user.id)[0];
             // gegevens aanpassen
-            updatedUser.firstName = user.firstName;
-            updatedUser.lastName = user.lastName;
+            updatedUser.firstName = user.firstName;   
         },
         cancel: function () {
             var self = this;
@@ -121,14 +120,14 @@ var app = new Vue({
             fetch(`${apiURL}Users/${self.currentUser.id}`, { method: 'DELETE' })
                 .then(res => res.json())
                 .then(function (res) {
-                    // boek verwijderen uit de lijst
+                    // gebruiker verwijderen uit de lijst
                     self.users.forEach(function (user, i) {
                         if (user.id === self.currentUser.id) {
                             self.users.splice(i, 1);
                             return;
                         }
                     });
-                    // eerste boek selecteren
+                    // eerste gebruiker selecteren
                     if (self.users.length > 0)
                         self.fetchUserDetails(self.users[0]);
                 })

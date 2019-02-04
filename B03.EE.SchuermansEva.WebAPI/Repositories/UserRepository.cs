@@ -6,37 +6,34 @@ using B03.EE.SchuermansEva.Lib.Models;
 using B03.EE.SchuermansEva.WebAPI.Models;
 using B03.EE.SchuermansEva.WebAPI.Repositories.Base;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using AutoMapper.QueryableExtensions;
 
 namespace B03.EE.SchuermansEva.WebAPI.Repositories
 {
-    public class UserRepository : Repository<User>
+    public class UserRepository : MappingRepository<User>
     {
-        public UserRepository(ActivityServiceContext context) : base(context)
+        public UserRepository(ActivityServiceContext context, IMapper mapper) : base(context, mapper)
         {   
         }
 
         public async Task<List<User>> GetAllInclusive()
         {
-            return await GetAll()
-                .Include(u => u.Registrations)
+            return await GetAll()  
                 .ToListAsync();
         }
 
         public async Task<List<UserBasic>> ListBasic()
         {
-            var users = await db.Users.Select(u => new UserBasic
-            {
-                Id = u.Id,
-                Name = $"{u.LastName} {u.FirstName}"
-
-            }).ToListAsync();
-            return users;
+            return await db.Users
+                .ProjectTo<UserBasic>(mapper.ConfigurationProvider)
+                .OrderBy(u => u.Name)
+                .ToListAsync();
         }
 
         public override async Task<User> GetById(int id)
         {
-            return await db.Users 
-                .Include(a => a.Registrations)
+            return await db.Users  
                 .FirstOrDefaultAsync(u => u.Id == id);
         }
     }

@@ -27,7 +27,7 @@ namespace B03.EE.SchuermansEva.WebAPI.Models
                 {
                     Id = 2,
                     Title = "Easter Citytrip",
-                    Description = "Visit Berlin in three days. Guided tour around the city, where the east and west part meet eachother",
+                    Description = "Visit Berlin in three days. Guided tour around the city, where the east and west part meet eachother.",
                     StartDateTime = new DateTime(2019, 4, 22, 7, 30, 0),
                     StopDateTime = new DateTime(2019, 4, 21, 20, 00, 0),
                     CategoryId = 4,

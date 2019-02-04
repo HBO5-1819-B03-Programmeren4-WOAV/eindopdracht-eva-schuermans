@@ -10,7 +10,10 @@ namespace B03.EE.SchuermansEva.WebAPI.Services.AutoMapper
         {}
         protected AutoMapperProfileConfiguration(string profileName) : base(profileName)
         {
-            CreateMap<ActivityBasic, Activity>();              
+            CreateMap<ActivityBasic, Activity>();
+            CreateMap<User, UserBasic>()
+                .ForMember(dest => dest.Name,
+                           opts => opts.MapFrom(src => $"{src.LastName} {src.FirstName}"));
         }
     }
 }

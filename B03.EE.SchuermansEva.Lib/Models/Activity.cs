@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;   
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace B03.EE.SchuermansEva.Lib.Models
 {
@@ -14,6 +15,7 @@ namespace B03.EE.SchuermansEva.Lib.Models
         public int CountryId { get; set; }
         public Country Country { get; set; }
 
+        [JsonIgnore]
         public ICollection<Registration> Registrations { get; set; }
     }
 }
