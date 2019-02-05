@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "Registrations";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<article id="app" class="row">
+    <header class="col-md-4">
+        <h3>  {{ message }}  </h3>
+        <nav>
+            <ul class="list-group">
+                <li v-for="activity in activities" v-on:click="fetchActivityParticipants(activity)" :class="getActivityClass(activity)" style="cursor:pointer">
+                    <span class="activityTitle">{{ activity.title }}</span>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div v-if="currentActivity" class="col-md-4">
+        <h3>Details</h3>  
+        <ul class="list-group">
+            <li class="list-group-item" v-for="participant in participants" style="cursor:pointer">
+                <span> {{ participant.lastName }} {{ participant.firstName }} </span>
+            </li>
+        </ul> 
+    </div>
+</article>
+
+@section scripts{
+    <script src="~/js/vue.js"></script>
+    <script src="~/js/registrations.js"></script>
+}
