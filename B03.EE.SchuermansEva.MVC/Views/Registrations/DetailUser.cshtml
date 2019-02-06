@@ -1,0 +1,31 @@
+﻿@using B03.EE.SchuermansEva.Lib.Models;
+@model B03.EE.SchuermansEva.MVC.Models.RegistrationIndexViewModel;
+
+<h2>Detail @Model.User.FirstName @Model.User.LastName</h2>
+
+
+<h3>Future activities</h3>
+<ul class="list-group">
+    @foreach (Activity activity in Model.ActivitiesForUser)
+    {
+        @if (activity.StopDateTime > DateTime.Now)
+        {
+            <li class="list-group-item">@activity.Title</li>
+        }
+    }
+</ul>
+
+<h3>Past activities</h3>
+@foreach (Activity activity in Model.ActivitiesForUser)
+{
+    @if (activity.StopDateTime < DateTime.Now)
+    {
+        <li class="list-group-item">@activity.Title</li>
+    }
+}  
+
+<div>
+    <a class="btn btn-default" asp-action="Index">Back</a>   
+    @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>*@
+</div>

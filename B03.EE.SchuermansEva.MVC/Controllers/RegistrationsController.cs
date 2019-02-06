@@ -14,6 +14,7 @@ namespace B03.EE.SchuermansEva.MVC.Controllers
     {
         string baseuri = "https://localhost:44335/api/";
         List<User> participants = new List<User>();
+        List<Activity> activitiesForUser = new List<Activity>();
 
         public IActionResult IndexVue()
         {
@@ -22,17 +23,21 @@ namespace B03.EE.SchuermansEva.MVC.Controllers
 
         public IActionResult Index()
         {
-            string uri = $"{baseuri}/activities";
+            string uriActvities = $"{baseuri}/activities";
+            string uriUsers = $"{baseuri}/users";
             RegistrationIndexViewModel vm = new RegistrationIndexViewModel();
-            vm.Activities = WebApiHelper.GetApiResult<List<Activity>>(uri);
+            vm.Activities = WebApiHelper.GetApiResult<List<Activity>>(uriActvities); 
+            vm.Users = WebApiHelper.GetApiResult<List<User>>(uriUsers);
             return View(vm);
         }
 
         public IActionResult DetailActivity(int id)
         {
-            string uri = $"{baseuri}/registrations";
+            string uriRegistrations = $"{baseuri}/registrations";   
+            string uriActivities = $"{baseuri}/activities/{id}";
             RegistrationIndexViewModel vm = new RegistrationIndexViewModel();
-            vm.Registrations = WebApiHelper.GetApiResult<List<Registration>>(uri);
+            vm.Registrations = WebApiHelper.GetApiResult<List<Registration>>(uriRegistrations);
+            vm.Activity = WebApiHelper.GetApiResult<Activity>(uriActivities);
             try
             {
                 foreach (Registration reg in vm.Registrations)
@@ -45,6 +50,31 @@ namespace B03.EE.SchuermansEva.MVC.Controllers
                 vm.Participants = participants;
             }
             catch(Exception e)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            return View(vm);
+        }
+
+        public IActionResult DetailUser(int id)
+        {
+            string uriRegistrations = $"{baseuri}/registrations";
+            string uriUser = $"{baseuri}/users/{id}";
+            RegistrationIndexViewModel vm = new RegistrationIndexViewModel();
+            vm.Registrations = WebApiHelper.GetApiResult<List<Registration>>(uriRegistrations);
+            vm.User = WebApiHelper.GetApiResult<User>(uriUser);
+            try
+            {
+                foreach (Registration reg in vm.Registrations)
+                {
+                    if (reg.UserId == id)
+                    {
+                        activitiesForUser.Add(reg.Activity);
+                    }
+                }
+                vm.ActivitiesForUser = activitiesForUser;
+            }
+            catch (Exception e)
             {
                 return RedirectToAction(nameof(Index));
             }
