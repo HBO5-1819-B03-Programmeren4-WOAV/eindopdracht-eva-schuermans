@@ -13,7 +13,7 @@ namespace B03.EE.SchuermansEva.MVC.Controllers
     public class RegistrationsController : Controller
     {
         string baseuri = "https://localhost:44335/api/";
-        List<User> participants;
+        List<User> participants = new List<User>();
 
         public IActionResult IndexVue()
         {
