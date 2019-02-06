@@ -1,0 +1,18 @@
+﻿@using B03.EE.SchuermansEva.Lib.Models;
+@model B03.EE.SchuermansEva.MVC.Models.RegistrationIndexViewModel;
+ 
+<h2>Activities</h2>  
+
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group">
+            @foreach (Activity activity in Model.Activities)
+            {
+                <li class="list-group-item" style="cursor:pointer">
+                    <a asp-controller="Registrations" asp-action="Detail" asp-route-id="@activity.Id">@activity.Title</a>
+                </li>
+            }
+        </ul>
+        @*<a class="btn btn-warning" asp-action="Insert">Register</a>*@
+    </div>
+</div>

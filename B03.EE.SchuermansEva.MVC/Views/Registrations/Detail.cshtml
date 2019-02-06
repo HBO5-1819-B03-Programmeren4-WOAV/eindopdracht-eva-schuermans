@@ -1,0 +1,19 @@
+﻿@using B03.EE.SchuermansEva.Lib.Models;
+@model B03.EE.SchuermansEva.MVC.Models.RegistrationIndexViewModel;
+
+<h2>Detail</h2>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="panel-body">
+            <ul class="list-group">
+                @foreach (User user in Model.Participants)
+                {                                 
+                    <li>@user.LastName @user.FirstName</li>
+                }
+            </ul>  
+            @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>*@
+        </div>
+    </div>
+</div>

@@ -37,8 +37,8 @@ var app = new Vue({
                 .then(res => res.json())
                 .then(function (registrations) { 
                     registrations.forEach(function (registration, i) {
-                        if (registration.activityId == activity.id) {
-                            participants.push(registration.user); 
+                        if (self.registration.activityId == self.activity.id) {
+                            self.participants.push(self.registration.userId); 
                         }
                     });
                     self.makeActivityActive(activity.id); 
