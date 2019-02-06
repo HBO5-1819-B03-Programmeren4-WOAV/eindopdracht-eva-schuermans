@@ -9,7 +9,7 @@
             @foreach (Activity activity in Model.Activities)
             {
                 <li class="list-group-item" style="cursor:pointer">
-                    <a asp-controller="Registrations" asp-action="Detail" asp-route-id="@activity.Id">@activity.Title</a>
+                    <a asp-controller="Registrations" asp-action="DetailActivity" asp-route-id="@activity.Id">@activity.Title</a>
                 </li>
             }
         </ul>

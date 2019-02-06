@@ -8,12 +8,13 @@
         <div class="panel-body">
             <ul class="list-group">
                 @foreach (User user in Model.Participants)
-                {                                 
+                {
                     <li>@user.LastName @user.FirstName</li>
                 }
-            </ul>  
+            </ul>
+            <a class="btn btn-default" asp-action="Index">Back</a>
             @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>*@
+        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>*@
         </div>
     </div>
 </div>

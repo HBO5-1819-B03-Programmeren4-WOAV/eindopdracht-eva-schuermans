@@ -28,7 +28,7 @@ namespace B03.EE.SchuermansEva.MVC.Controllers
             return View(vm);
         }
 
-        public IActionResult Detail(int id)
+        public IActionResult DetailActivity(int id)
         {
             string uri = $"{baseuri}/registrations";
             RegistrationIndexViewModel vm = new RegistrationIndexViewModel();
