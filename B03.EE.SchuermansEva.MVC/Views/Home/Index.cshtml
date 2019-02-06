@@ -47,7 +47,27 @@
 <div class="row">
     <div class="col-md-2"></div>
     <div class="col-md-8">
-        <h2>Activity Planner</h2>
+        @if (DateTime.Now.Hour < 5)
+        {
+            <h2>Good night</h2>
+        }
+        else if (DateTime.Now.Hour < 11)
+        {
+            <h2>Good morning</h2>
+        }
+        else if (DateTime.Now.Hour < 15)
+        {
+            <h2>Good afternoon</h2>
+        }
+        else if (DateTime.Now.Hour < 22)
+        {
+            <h2>Good evening</h2>
+        }
+        else
+        {
+            <h2>Good night</h2>
+        }
+
         <p>Are you tired of trafic yams? Does your life feels like: sleep, eat, work, eat, sleep, ... Do you want to break out of the boredom?</p>
         <p>Go and give yourself a great time. You can add activities and attend as many as you like. Share with friends so they can also subscribe.</p>
         <p>Have a nice time!</p>

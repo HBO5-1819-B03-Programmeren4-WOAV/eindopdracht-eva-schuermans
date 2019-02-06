@@ -1,5 +1,5 @@
 ﻿@using B03.EE.SchuermansEva.Lib.Models;
-@model B03.EE.SchuermansEva.MVC.Models.RegistrationIndexViewModel;
+@model B03.EE.SchuermansEva.MVC.Models.RegistrationDetailUserViewModel;
 
 <h2>Detail @Model.User.FirstName @Model.User.LastName</h2>
 
@@ -10,7 +10,10 @@
     {
         @if (activity.StopDateTime > DateTime.Now)
         {
-            <li class="list-group-item">@activity.Title</li>
+            <li class="list-group-item"> 
+                <span>@activity.Title</span>   
+                @*<a asp-controller="Registrations" asp-action="DeleteUser" asp-route-id="@Model.Registration.Id"><span class="glyphicon glyphicon-remove"></span></a>*@
+            </li>
         }
     }
 </ul>
@@ -19,13 +22,15 @@
 @foreach (Activity activity in Model.ActivitiesForUser)
 {
     @if (activity.StopDateTime < DateTime.Now)
-    {
-        <li class="list-group-item">@activity.Title</li>
+    {       
+        <li class="list-group-item">
+            <span>@activity.Title</span>
+            @*<a asp-controller="Registrations" asp-action="DeleteUser" asp-route-id="@Model.Registration.Id"><span class="glyphicon glyphicon-remove"></span></a>*@
+        </li>
     }
 }  
 
 <div>
-    <a class="btn btn-default" asp-action="Index">Back</a>   
-    @*<a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
-    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@Model.Id">Delete</a>*@
+    <a class="btn btn-primary" asp-action="Index">Back</a>   
+    @*<a class="btn btn-warning" asp-action="AddActivity" asp-route-id="@Model.Id">Add</a>*@
 </div>

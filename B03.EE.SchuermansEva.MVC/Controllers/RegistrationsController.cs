@@ -35,7 +35,7 @@ namespace B03.EE.SchuermansEva.MVC.Controllers
         {
             string uriRegistrations = $"{baseuri}/registrations";   
             string uriActivities = $"{baseuri}/activities/{id}";
-            RegistrationIndexViewModel vm = new RegistrationIndexViewModel();
+            RegistrationDetailActivityViewModel vm = new RegistrationDetailActivityViewModel();
             vm.Registrations = WebApiHelper.GetApiResult<List<Registration>>(uriRegistrations);
             vm.Activity = WebApiHelper.GetApiResult<Activity>(uriActivities);
             try
@@ -60,7 +60,7 @@ namespace B03.EE.SchuermansEva.MVC.Controllers
         {
             string uriRegistrations = $"{baseuri}/registrations";
             string uriUser = $"{baseuri}/users/{id}";
-            RegistrationIndexViewModel vm = new RegistrationIndexViewModel();
+            RegistrationDetailUserViewModel vm = new RegistrationDetailUserViewModel();
             vm.Registrations = WebApiHelper.GetApiResult<List<Registration>>(uriRegistrations);
             vm.User = WebApiHelper.GetApiResult<User>(uriUser);
             try
